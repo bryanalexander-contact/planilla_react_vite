@@ -1,30 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import Page404 from '@/pages/Page404/Page404.jsx';
-
-// Importa un componente Home básico para que el template funcione al iniciar
-// import Home from '@/pages/Home/Home'; 
+import Home from './pages/Home';
 
 function App() {
   return (
-    <Router>
+    <>
+      {/* Configuración de SEO usando Helmet */}
       <Helmet>
-        <title>Nombre Proyecto | Template</title>
-        <meta name="description" content="Descripción base del proyecto" />
+        <title>Reserva Dental | Clínica Smile</title>
+        <meta name="description" content="Agenda tu cita dental de forma rápida y sencilla." />
       </Helmet>
 
-      {/* Aquí puedes importar y colocar tu <Navbar /> cuando lo tengas */}
+      {/* Aquí cargamos nuestra página de inicio */}
+      <Home />
 
-      <Routes>
-        {/* Ruta principal: cámbiala por tu componente real cuando lo crees */}
-        <Route path="/" element={<div>Planilla Lista - Empieza a construir</div>} />
-        
-        {/* Ruta 404 */}
-        <Route path="*" element={<Page404 />} />
-      </Routes>
-
-      {/* Aquí puedes colocar tu <Footer /> global */}
-    </Router>
+      <footer style={{ textAlign: 'center', padding: '40px', color: '#aaa', borderTop: '1px solid #eee' }}>
+        <p>© 2026 Clínica Smile. Todos los derechos reservados.</p>
+      </footer>
+    </>
   );
 }
 
